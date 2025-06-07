@@ -1,6 +1,6 @@
 from sqlalchemy import Column, ForeignKey, Integer, String, Text, UniqueConstraint
 from sqlalchemy.dialects.postgresql import UUID
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
 
@@ -23,7 +23,7 @@ class ClientNetwork(Base):
     __tablename__ = "client_network"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    client_id = Column(UUID, ForeignKey("client.id"), nullable=False)
-    network_id = Column(Integer, ForeignKey("network.id"), nullable=False)
+    client_id = Column(UUID, ForeignKey("client.id", ondelete="CASCADE"), nullable=False)
+    network_id = Column(Integer, ForeignKey("network.id", ondelete="CASCADE"), nullable=False)
 
     __table_args__ = (UniqueConstraint("client_id", "network_id"),)
