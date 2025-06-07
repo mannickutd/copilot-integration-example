@@ -1,5 +1,4 @@
-from sqlalchemy import (Column, ForeignKey, Integer, String, Text,
-                        UniqueConstraint)
+from sqlalchemy import Column, ForeignKey, Integer, String, Text, UniqueConstraint
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.ext.declarative import declarative_base
 
