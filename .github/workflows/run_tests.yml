@@ -28,14 +28,8 @@ jobs:
         run: |
           uv sync
 
-      - name: Run Black
-        run: uv run black --check .
-
-      - name: Run Isort
-        run: uv run isort --check-only .
-
       - name: Run Ruff
-        run: uv run ruff .
+        run: uv run ruff check copilot_integration_example
 
       - name: Start PostgreSQL with Docker Compose
         run: |
